@@ -3,3 +3,16 @@ at 25:50 is when he talks about connectiuon string iand  the
 "postgres://gsite_user:fEUGYADX1ubCrYP5dB2bXtBlyTDiTioD@smokehost:5432/gsite_user"
 "postgres://gsite_user:fEUGYADX1ubCrYP5dB2bXtBlyTDiTioD@dpg-cg05gat269vdqrfpj2g0-a/gsite"
 postgres://playabook:8896@localhost:5432/gericka
+
+ first: first.value,
+            last: last.value,
+            phone: phone.value,
+            target: target.value,
+            email: email.value,
+            birthdate: birthdate.value,
+            money: money.checked,
+            other: other.checked,
+            love: love.checked
+
+
+            got to go on sheetsdb fordatabase shit

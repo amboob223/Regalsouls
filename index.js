@@ -10,6 +10,7 @@ const other = document.getElementById("other");
 const love = document.getElementById("love");
 
 
+
 button.addEventListener("click", async () => {
 
     //we might have to switch the true and false of the radios ghere when you dlick then process to database
@@ -27,7 +28,7 @@ button.addEventListener("click", async () => {
             love: love.checked
         }
 
-        const response = await fetch("https://gsite-0hlj.onrender.com/gericka",
+        const response = await fetch("https://sheetdb.io/api/v1/mp4jkl0cahkbu",
             {
                 method: "POST",
                 headers: { "Content-type": "application/json" }, // this is to tell the browseres that its going to ressive json dats
