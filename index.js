@@ -28,7 +28,7 @@ button.addEventListener("click", async () => {
             love: love.checked
         }
 
-        const response = await fetch("https://sheetdb.io/api/v1/ky5usvtoykq6h",
+        const response = await fetch("https://sheetdb.io/api/v1/fcvy7nd7qhlpz",
             {
                 method: "POST",
                 headers: { "Content-type": "application/json" }, // this is to tell the browseres that its going to ressive json dats

@@ -16,3 +16,6 @@ postgres://playabook:8896@localhost:5432/gericka
 
 
             got to go on sheetsdb fordatabase shit
+
+            -word bobble app 
+            -code4sum
