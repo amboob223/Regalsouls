@@ -35,12 +35,12 @@ button.addEventListener("click", async () => {
                 body: JSON.stringify(body)
             })
         //serial primal key
-        first.value = "",
-            last.value = "",
-            birthdate.value = "",
-            phone.value = "",
-            target.value = "",
-            email.value = ""
+        first.value = "";
+            last.value = "";
+            birthdate.value = "";
+            phone.value = "";
+            target.value = "";
+            email.value = "";
 
         alert("Your booking was sucessful we will get back with you shorly")
 
