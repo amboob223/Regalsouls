@@ -5,10 +5,10 @@ const pool = require("./db"); // because this is whats being exported form modul
 
 
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://regalsouls.netlify.app');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'https://regalsouls.netlify.app');
+//     next();
+// });
 //middleware is needed or we will get an error
 app.use(cors());
 app.use(express.json());
@@ -18,7 +18,7 @@ app.use(express.json());
 
 
 //submitting the data
-app.post("/", async (req, res) => {
+app.post("/souls", async (req, res) => {
     try {
         const { first, last, birthdate, phone, target, email, money, love, other } = req.body // we decontructed the body object in the cleint
         const newInfo = await pool.query(
@@ -32,12 +32,9 @@ app.post("/", async (req, res) => {
         //     "INSERT INTO readings(money,love,other) VALUES($1,$2,$3) RETURNING *",
         //     [money,love,other]
         // )
-
-
         res.json(
             newInfo.rows
-
-        )// this is what we sending back to the browser
+            )//this is what we sending back to the browser
 
     } catch (error) {
         console.log(error.message)
@@ -48,7 +45,6 @@ app.post("/", async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen("5000", () => {
     console.log("server works")
 })

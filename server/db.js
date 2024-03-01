@@ -1,7 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+    host:"localhost",
+    port:5432,
+    password:"8896",
+    database:"gsite",
+    user:"playabook"
 });
 
 
