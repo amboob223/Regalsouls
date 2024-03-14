@@ -1,4 +1,5 @@
-package-lock.json
+lspackage-lock.json
 node-module/
 .env
 client/
+node_modules

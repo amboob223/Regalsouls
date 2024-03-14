@@ -44,7 +44,6 @@ app.post("/souls", async (req, res) => {
 
 
 
-const PORT = PORT || 5000
-app.listen(PORT, () => {
+app.listen(5000, () => {
     console.log("server works")
 })
