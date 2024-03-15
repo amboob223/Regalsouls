@@ -42,7 +42,7 @@ button.addEventListener("click", async () => {
             target.value = "";
             email.value = "";
 
-        alert("Your booking was sucessful we will get back with you shorly")
+        alert("Your booking was sucessful we will get back with you ASAP")
 
     } catch (error) {
         console.log(error)
