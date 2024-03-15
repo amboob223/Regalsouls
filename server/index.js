@@ -1,49 +1,49 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db"); // because this is whats being exported form module.exports on the otyher page
+const pool = require("./db");
 
+const corsOptions = {
+  origin: ['https://regalsouls.com', 'https://regalsoulsweb.onrender.com'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
+// Applying CORS options to the specific route
+app.use('/souls', cors(corsOptions));
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'https://regalsouls.netlify.app');
-//     next();
-// });
-//middleware is needed or we will get an error
-app.use(cors());
+// Parsing JSON requests
 app.use(express.json());
 
-// what is set Heahder and why access-allow origin
+app.get("/", async (req, res) => {
+  try {
+    res.send("hello");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal server error");
+  }
+}); // we got to add this on render
 
 
-
-//submitting the data
+// Route for submitting data
 app.post("/souls", async (req, res) => {
     try {
-        const { first, last, birthdate, phone, target, email, money, love, other } = req.body // we decontructed the body object in the cleint
+        const { first, last, birthdate, phone, target, email, money, love, other } = req.body;
         const newInfo = await pool.query(
             "INSERT INTO readings(id,first,last,email,phone,birthdate,target,money,love,other) VALUES(nextval('readings_id_seq'),$1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *",
             [first, last, email, phone, birthdate, target, money, love, other]
         );
 
-        // const id = newInfo.rows[0].id // extract id from retirned row
-
-        // const radio = await pool.query(
-        //     "INSERT INTO readings(money,love,other) VALUES($1,$2,$3) RETURNING *",
-        //     [money,love,other]
-        // )
-        res.json(
-            newInfo.rows
-            )//this is what we sending back to the browser
+        res.json(newInfo.rows);
 
     } catch (error) {
-        console.log(error.message)
-        console.log("no")
+        console.error(error.message);
+        res.status(500).json({ error: "Internal server error" });
     }
-})
+});
 
-
-
-app.listen(5000, () => {
-    console.log("server works")
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
